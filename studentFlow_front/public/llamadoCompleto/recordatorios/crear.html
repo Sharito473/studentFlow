@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentFlow · Crear recordatorio</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/llamados-completos.css">
+    <!-- defer ejecuta el ejemplo cuando los elementos del HTML ya existen. -->
+    <script defer src="../../js/llamadosCompletos/recordatorios/crearRecordatorio.js"></script>
+</head>
+<body>
+    <main>
+        <header>
+        <p class="eyebrow">StudentFlow / Ejemplo de clase</p>
+        <h1>Crear recordatorio</h1>
+        <p>Completa los datos para asociar un nuevo recordatorio a una tarea específica.</p>
+        <p><code>POST /api/v1/recordatorio</code></p>
+        </header>
+        <nav class="navegacion" aria-label="Ejemplos de endpoints">
+        <a href="./listar.html">Listar</a>
+        <a href="./obtener.html">Consultar</a>
+        <a href="./crear.html">Crear</a>
+        <a href="./reemplazar.html">Reemplazar</a>
+        <a href="./actualizar.html">Actualizar campos</a>
+        <a href="./eliminar.html">Eliminar</a>
+        <a href="../estado.html">Estado del servicio</a>
+        </nav>
+        <section class="panel" aria-labelledby="formulario-titulo">
+        <h2 id="formulario-titulo">Datos de la solicitud</h2>
+        <!-- El evento submit llama a la función del ejemplo sin recargar la página. -->
+        <form id="formulario-recordatorio">
+            <div class="campos">
+            <div class="campo">
+                <label for="tarea-id">ID de la tarea</label>
+                <input id="tarea-id" name="tarea-id" type="number" min="1" max="9007199254740991" step="1" required placeholder="ID de la tarea asociada">
+            </div>
+            <div class="campo">
+                <label for="mensaje">Mensaje</label>
+                <input id="mensaje" name="mensaje" type="text" value="Entregar avance del proyecto" required>
+            </div>
+            <div class="campo">
+                <label for="fecha-hora">Fecha y hora</label>
+                <input id="fecha-hora" name="fecha_hora" type="datetime-local" required>
+            </div>
+            <div class="campo">
+                <label for="canal">Canal</label>
+                <input id="canal" name="canal" type="text" value="sistema" required>
+            </div>
+            <div class="campo">
+                <label for="leido">Estado de lectura</label>
+                <select id="leido" name="leido">
+                <option value="false">No leído</option>
+                <option value="true">Leído</option>
+                </select>
+            </div>
+            </div>
+            <div class="actions">
+            <button id="enviar" type="submit">Crear recordatorio</button>
+            </div>
+        </form>
+        <p class="note">La operación se envía al pulsar el botón y afecta a la base de datos real.</p>
+        </section>
+        <section class="panel resultado-panel" aria-labelledby="resultado-titulo">
+        <h2 id="resultado-titulo">Resultado</h2>
+        <p id="estado" role="status" aria-live="polite">Completa el formulario para comenzar.</p>
+        <div class="tabla-contenedor" tabindex="0" role="region" aria-label="Recordatorio devuelto por el API">
+            <table>
+            <caption>Recordatorio devuelto por el API</caption>
+            <thead><tr>
+                <th scope="col">ID</th><th scope="col">ID Tarea</th><th scope="col">Mensaje</th>
+                <th scope="col">Fecha / Hora</th><th scope="col">Canal</th><th scope="col">Leído</th>
+                <th scope="col">Tarea</th><th scope="col">Materia</th>
+            </tr></thead>
+            <!-- El JavaScript agrega una fila con los datos recibidos. -->
+            <tbody id="resultado-body"></tbody>
+            </table>
+        </div>
+        </section>
+        <footer>El proceso completo está comentado en <code>../../js/llamadosCompletos/recordatorios/crearRecordatorio.js</code>. También puedes ver el resultado en la consola (F12).</footer>
+    </main>
+</body>
+</html>
